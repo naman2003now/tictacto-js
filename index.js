@@ -2,7 +2,9 @@ const boxes = document.querySelectorAll(".space");
 const P_X = "X";
 const P_O = "O";
 let turn = P_X;
-
+// let positions=[
+//     {};
+// ];
 
 const boardPos = Array(boxes.length);
 boardPos.fill(null); //setting it up to Null in the beginning
@@ -34,6 +36,28 @@ function hoverBox() {
 
 }
 
+// saving snap of gameplay
+function saveSnap(boxNo , currentPlayer) {
+    // console.log(boxNo);
+    // console.log(currentPlayer.toLowerCase());
+    const noting_position = document.querySelectorAll("."+currentPlayer.toLowerCase());
+    // console.log(noting_position);
+    for (var c of noting_position) {
+        if(c.innerText=='') {
+            console.log(c);
+            console.log(boardPos);
+            const MoveBoxNo = c.dataset.index;
+            // saveSnapGrid(MoveBoxNo , boardPos);
+            c.classList.remove("hidden-half");
+            c.innerText = 'Box number: '+boxNo;
+            return;
+        }
+    }
+
+
+}
+
+
 
 
 // clicking boxes
@@ -61,6 +85,7 @@ function clickBox(event) {
     }
     hoverBox();
     checkWin();
+    saveSnap(boxNo , turn);
 }
 
 function gameOver(winner) {
@@ -97,6 +122,7 @@ const winning_combos = [
 
 
 function checkWin() {
+    
     for (each_combo of winning_combos) {
         const cellcombo = each_combo.cells;     // the list that contains winning combinations
         const strikeClass = each_combo.strikeClass;     // 

@@ -13,6 +13,10 @@ body {
   display: none;
 }
 
+.hidden-half {
+  opacity: 0.3;
+}
+
 .visible {
   display: block;
 }
@@ -169,7 +173,7 @@ body {
   display: grid;
   gap: 10px;
   grid-template-columns: 400px 400px;
-  grid-template-rows: 4rem;
+  grid-template-rows: 4rem 4rem 4rem 4rem 4rem 4rem;
   padding: 5% 0;
 }
 
