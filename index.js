@@ -1,7 +1,11 @@
 const boxes = document.querySelectorAll(".space");
 const P_X = "X";
 const P_O = "O";
+var count=0;
 let turn = P_X;
+let turnText = `Player ${turn}, make your move`;
+document.querySelector('.playerturn').innerText = turnText;
+
 let positions = [
     {key : 10},
     {key : 11},
@@ -64,6 +68,7 @@ function saveSnapGrid(MoveBoxNo , currentBoardPos) {
 
 // function that saves data snap of gameplay
 function saveSnap(boxNo , currentPlayer) {
+    count+=1;
     // console.log(boxNo);
     // console.log(currentPlayer.toLowerCase());
     const noting_position = document.querySelectorAll("."+currentPlayer.toLowerCase());
@@ -76,7 +81,7 @@ function saveSnap(boxNo , currentPlayer) {
             const MoveBoxNo = c.dataset.index;
             saveSnapGrid(MoveBoxNo , currentBoardPos);
             c.classList.remove("hidden-half");
-            c.innerText = 'Box number: '+boxNo;
+            c.innerText = 'move '+count+'\nbox '+boxNo;
             c.addEventListener("click" , displayGrid);
             return;
         }
@@ -118,7 +123,7 @@ function clickBox(event) {
     if(gameOverSection.classList.contains("visible")) {
         return;
     }
-
+    
     const box = event.target;
     const boxNo = box.dataset.index;
     if(box.innerHTML!='') {
@@ -130,10 +135,14 @@ function clickBox(event) {
         box.innerText = (P_X);
         boardPos[boxNo - 1] = P_X;
         turn = P_O;
+        turnText = `Player ${turn}, make your move`;
+        document.querySelector('.playerturn').innerText = turnText;
     } else {
         box.innerText = (P_O);
         boardPos[boxNo - 1] = P_O;
         turn = P_X;
+        turnText = `Player ${turn}, make your move`;
+        document.querySelector('.playerturn').innerText = turnText;
 
     }
     hoverBox();
