@@ -2,9 +2,18 @@ const boxes = document.querySelectorAll(".space");
 const P_X = "X";
 const P_O = "O";
 let turn = P_X;
-// let positions=[
-//     {};
-// ];
+let positions = [
+    {key : 10},
+    {key : 11},
+    {key : 20},
+    {key : 21},
+    {key : 30},
+    {key : 31},
+    {key : 40},
+    {key : 41},
+    {key : 50},
+    {key : 51}
+];
 
 const boardPos = Array(boxes.length);
 boardPos.fill(null); //setting it up to Null in the beginning
@@ -36,7 +45,24 @@ function hoverBox() {
 
 }
 
-// saving snap of gameplay
+// function that saves the grid at this moment
+function saveSnapGrid(MoveBoxNo , currentBoardPos) {
+    for (var each_snap of positions) {
+        const boxindex = each_snap.key;
+        if (boxindex == MoveBoxNo) {
+            console.log('saving positions');
+            each_snap.positions = currentBoardPos;
+            console.log("current position saving: ");
+            console.log(currentBoardPos);
+        }
+    }
+    
+}
+
+
+
+
+// function that saves data snap of gameplay
 function saveSnap(boxNo , currentPlayer) {
     // console.log(boxNo);
     // console.log(currentPlayer.toLowerCase());
@@ -45,19 +71,46 @@ function saveSnap(boxNo , currentPlayer) {
     for (var c of noting_position) {
         if(c.innerText=='') {
             console.log(c);
-            console.log(boardPos);
+            const currentBoardPos = boardPos.slice(0);
+            console.log(currentBoardPos);
             const MoveBoxNo = c.dataset.index;
-            // saveSnapGrid(MoveBoxNo , boardPos);
+            saveSnapGrid(MoveBoxNo , currentBoardPos);
             c.classList.remove("hidden-half");
             c.innerText = 'Box number: '+boxNo;
+            c.addEventListener("click" , displayGrid);
             return;
         }
     }
-
-
 }
 
 
+function displayGrid(event) {
+    if(gameOverSection.classList.contains("visible")) {
+        for (var each_snap of positions) {
+            const boxnum = each_snap.key;
+            const currentPos = each_snap.positions;
+            if (boxnum == event.target.dataset.index) {
+                // now we need to rearrange the grid as per this position array!
+                // console.log("set this position:");
+                // console.log(currentPos);
+
+                document.querySelector(".strike").classList.add("hidden");
+
+                var grid = document.querySelectorAll(".space");
+                for (var i=0; i<currentPos.length; i++) {
+                    grid[i].innerText = currentPos[i];
+                }
+                
+                
+            }
+        }
+
+    }   
+
+    
+
+    
+}
 
 
 // clicking boxes
