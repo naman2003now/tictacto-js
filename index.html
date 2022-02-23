@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>X/O</title>
+
+    <!-- css linking -->
+    <link rel="stylesheet" href="style/stylesheet.css">
+    
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gideon+Roman&family=Rowdies:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section class="header-1">
+        - X and O -
+    </section>
+
+    <section class="playerturn"></section>
+
+    
+    <section id="board">
+        <div data-index="1" class="space"></div>
+        <div data-index="2" class="space"></div>
+        <div data-index="3" class="space"></div>
+        <div data-index="4" class="space"></div>
+        <div data-index="5" class="space"></div>
+        <div data-index="6" class="space"></div>
+        <div data-index="7" class="space"></div>
+        <div data-index="8" class="space"></div>
+        <div data-index="9" class="space"></div>
+        <div class="strike" id="strike"></div>
+    </section>
+
+    <section id ="winner" class="winner hidden">
+        <div class="header-3">GAME OVER!</div>
+        <div class="header-3" id="winner-text">X has won :)</div>
+        <a id="restart" href="" class="restart">RESTART</a>
+    </section>
+    
+    <section id="moves">
+        <div class="header-3 cell">X's moves</div>
+        <div class="header-3 cell">O's moves</div>
+        <div class="cell x-1"></div>
+        <div class="cell o-1"></div>
+        <div class="cell x-2"></div>
+        <div class="cell o-2"></div>
+        <div class="cell x-3"></div>
+        <div class="cell o-3"></div>
+        <div class="cell x-4"></div>
+        <div class="cell o-4"></div>
+        <div class="cell x-5"></div>
+        <div class="cell o-5"></div>
+    </section>
+
+
+
+    <!-- javascript linking -->
+    <script src="index.js"></script>
+</body>
+</html>

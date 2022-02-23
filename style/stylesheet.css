@@ -1,0 +1,181 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #141e27;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-family: "Gideon Roman", cursive;
+}
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: block;
+}
+
+/* headings */
+.header-1 {
+  font-size: 7rem;
+  color: #e0ddaa;
+  padding: 2% 0 5%;
+}
+
+.header-2 {
+  font-size: 4rem;
+  color: #e0ddaa;
+  padding: 2% 0 5%;
+  font-family: "Rowdies", cursive;
+}
+
+.header-3 {
+  font-size: 2rem;
+  color: #203239;
+  padding: 2% 0 5%;
+  font-family: "Gideon Roman", cursive;
+}
+
+/* game board */
+#board {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 100px 100px 100px;
+  grid-template-rows: 100px 100px 100px;
+  cursor: pointer;
+  position: relative;
+}
+
+.space {
+  background-color: #e0ddaa;
+  font-family: "Rowdies", cursive;
+  color: #203239;
+  font-size: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Hover */
+.X-hover:hover::after {
+  content: "X";
+  font-size: 5rem;
+  font-family: "Rowdies", cursive;
+  color: #203239;
+  opacity: 0.5;
+}
+
+.O-hover:hover::after {
+  content: "O";
+  font-size: 5rem;
+  font-family: "Rowdies", cursive;
+  color: #203239;
+  opacity: 0.5;
+}
+
+.strike {
+  position: absolute;
+  background-color: #141e27;
+  opacity: 0.5;
+}
+.strike-row-1 {
+  height: 100px;
+  width: 320px;
+  position: absolute;
+  top: 0;
+}
+
+.strike-row-2 {
+  height: 100px;
+  width: 320px;
+  position: absolute;
+  top: 110px;
+}
+
+.strike-row-3 {
+  height: 100px;
+  width: 320px;
+  position: absolute;
+  top: 220px;
+}
+
+.strike-col-1 {
+  height: 320px;
+  width: 100px;
+  position: absolute;
+  left: 0;
+}
+
+.strike-col-2 {
+  height: 320px;
+  width: 100px;
+  position: absolute;
+  left: 110px;
+}
+
+.strike-col-3 {
+  height: 320px;
+  width: 100px;
+  position: absolute;
+  left: 220px;
+}
+
+.strike-dia-1 {
+  height: 320px;
+  width: 100px;
+  position: absolute;
+  left: 110px;
+  transform: rotate(45deg);
+}
+
+.strike-dia-2 {
+  height: 320px;
+  width: 100px;
+  position: absolute;
+  left: 110px;
+  transform: rotate(-45deg);
+}
+
+.winner {
+  position: absolute;
+  right: 20px;
+  font-size: 2rem;
+  background-color: #e0ddaa;
+  padding: 15% 2% 2%;
+}
+
+.restart {
+  text-decoration: none;
+  padding: 10px 20px;
+  background-color: #141e27;
+  color: #e0ddaa;
+  font-size: 1rem;
+  border-radius: 10px;
+}
+
+.restart:hover {
+  text-decoration: none;
+  padding: 10px 20px;
+  background-color: #050f13;
+  color: #e0ddaa;
+  font-size: 1rem;
+  border-radius: 10px;
+}
+
+/* Recording Moves */
+#moves {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 400px 400px;
+  grid-template-rows: 4rem;
+  padding: 5% 0;
+}
+
+.cell {
+  background-color: #e0ddaa;
+  font-size: 2rem;
+  color: #203239;
+  font-weight: 900;
+}
