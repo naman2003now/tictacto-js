@@ -2,9 +2,23 @@ const boxes = document.querySelectorAll(".space");
 const P_X = "X";
 const P_O = "O";
 var count=0;
+var flag=0;
 let turn = P_X;
 let turnText = `Player ${turn}, make your move`;
 document.querySelector('.playerturn').innerText = turnText;
+
+const boardPos = Array(boxes.length);
+boardPos.fill(null); //setting it up to Null in the beginning
+
+// gathering elements from HTML
+const winstrike = document.getElementById("strike");
+const gameOverSection = document.getElementById("winner");
+const gameOverText = document.getElementById("winner-text");
+const playAgain = document.getElementById("restart");
+
+// restart game
+playAgain.addEventListener("click", restartGame);
+
 
 let positions = [
     {key : 10},
@@ -18,15 +32,6 @@ let positions = [
     {key : 50},
     {key : 51}
 ];
-
-const boardPos = Array(boxes.length);
-boardPos.fill(null); //setting it up to Null in the beginning
-
-// gathering elements from HTML
-const winstrike = document.getElementById("strike");
-const gameOverSection = document.getElementById("winner");
-const gameOverText = document.getElementById("winner-text");
-const playAgain = document.getElementById("restart");
 
 // hovering over boxes
 function hoverBox() {
@@ -45,8 +50,6 @@ function hoverBox() {
             box.classList.add(hoverTurn);
         }
     })
-
-
 }
 
 // function that saves the grid at this moment
@@ -62,8 +65,6 @@ function saveSnapGrid(MoveBoxNo , currentBoardPos) {
     }
     
 }
-
-
 
 
 // function that saves data snap of gameplay
@@ -87,6 +88,31 @@ function saveSnap(boxNo , currentPlayer) {
         }
     }
 }
+
+function addScore(decided_winner) {
+    console.log("from addScore function- winner: "+decided_winner);
+    if(decided_winner===null) {
+        const for_player_x = document.querySelector(".score-x");
+        const for_player_o = document.querySelector(".score-o");
+        
+        var new_score_x = parseInt(for_player_x.innerHTML)+50;
+        var new_score_o = parseInt(for_player_o.innerHTML)+50;
+        for_player_x.innerHTML = new_score_x;
+        for_player_o.innerHTML = new_score_o;
+        flag+=1;
+        console.log("flag now: "+flag);
+
+    } else {
+        const for_player = document.querySelector(".score-"+decided_winner);
+        var new_score = parseInt(for_player.innerHTML)+100;
+        for_player.innerHTML = new_score;
+        flag+=1;
+        console.log("flag now: "+flag);
+    }
+
+}
+
+
 
 
 function displayGrid(event) {
@@ -153,15 +179,31 @@ function clickBox(event) {
 function gameOver(winner) {
     
     if(winner!=null) {
+        // Displaying winner text
         gameOverText.innerText = `${winner} has won!`;
         gameOverSection.classList.remove("hidden");
         gameOverSection.classList.add("visible");
+
+
+        // Updating scoreboard
+        if(flag===0) {
+            addScore(winner.toLowerCase());
+        }
+        
+
+
     } else {
+        // Displaying winner text
         gameOverText.innerText = 'Its a draw!';
         gameOverSection.classList.remove("hidden");
         gameOverSection.classList.add("visible");
-    }
 
+        // Updating scoreboard
+        if(flag===0) {
+            addScore(winner);
+        }
+        
+    }
     
 }
 
@@ -210,7 +252,35 @@ function checkWin() {
     }
 }
 
+function restartGame() {
+    console.log("in restart game function ");
+    flag=0;
+    count=0;
+    winstrike.className = "strike";
+    gameOverSection.classList.remove("visible");
+    gameOverSection.classList.add("hidden");
+    boxes.forEach((box)=>box.innerHTML=null);
+    boardPos.fill(null);
 
+    for (var each_snap of positions) {
+        each_snap.positions = boardPos;
+    }
+
+    const moves_table_o = document.querySelectorAll(".o");
+    for (var c of moves_table_o) {
+        c.innerHTML=null;
+        c.classList.add("hidden-half");
+    }
+    const moves_table_x = document.querySelectorAll(".x");
+    for (var c of moves_table_x) {
+        c.innerHTML=null;
+        c.classList.add("hidden-half");
+    }
+
+    turn = P_X;
+    turnText = `Player ${turn}, make your move`;
+    document.querySelector('.playerturn').innerText = turnText;
+}
 
 
 for (var i=0; i<boardPos.length; i++) {

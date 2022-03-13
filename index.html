@@ -8,8 +8,6 @@
 
     <!-- css linking -->
     <link rel="stylesheet" href="style/stylesheet.css">
-    
-
 
 
     <!-- google fonts -->
@@ -23,8 +21,8 @@
     </section>
 
     <section class="playerturn header-2"></section>
-    
-    <section id="board">
+
+    <section id="board" class="visible">
         <div data-index="1" class="space"></div>
         <div data-index="2" class="space"></div>
         <div data-index="3" class="space"></div>
@@ -36,15 +34,16 @@
         <div data-index="9" class="space"></div>
         <div class="strike" id="strike"></div>
     </section>
-
+    
     <section id ="winner" class="winner hidden">
         <div class="header-4">GAME OVER</div>
         <div class="header-4" id="winner-text">X has won :)</div>
-        <a id="restart" href="" class="restart">RESTART</a>
-    </section>
-    
+        <!-- <a id="restart" href="" class="restart">RESTART</a> -->
+        <button id="restart" class="restart">RESTART</button>
+    </section>   
 
-    <section id="moves">
+    <div class="header-2">Recorded Moves</div>
+    <section id="moves" class="visible">
         <div class="header-3 cell">O's moves</div>
         <div class="header-3 cell">X's moves</div>
         <div class="cell x hidden-half" data-index="10"></div>
@@ -59,7 +58,13 @@
         <div class="cell o hidden-half" data-index="51"></div>
     </section>
 
-
+    <div class="header-2">Scoreboard</div>
+    <section id ="scoreboard" class="scoreboard">
+        <div class="header-4 score-cell">X</div>
+        <div class="header-4 score-cell">O</div>
+        <div class="score-cell score-x">0</div>
+        <div class="score-cell score-o">0</div>
+    </section>
 
     <!-- javascript linking -->
     <script src="index.js"></script>
