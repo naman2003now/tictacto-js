@@ -57,10 +57,10 @@ function saveSnapGrid(MoveBoxNo , currentBoardPos) {
     for (var each_snap of positions) {
         const boxindex = each_snap.key;
         if (boxindex == MoveBoxNo) {
-            console.log('saving positions');
+            // console.log('saving positions');
             each_snap.positions = currentBoardPos;
-            console.log("current position saving: ");
-            console.log(currentBoardPos);
+            // console.log("current position saving: ");
+            // console.log(currentBoardPos);
         }
     }
     
@@ -76,9 +76,9 @@ function saveSnap(boxNo , currentPlayer) {
     // console.log(noting_position);
     for (var c of noting_position) {
         if(c.innerText=='') {
-            console.log(c);
+            // console.log(c);
             const currentBoardPos = boardPos.slice(0);
-            console.log(currentBoardPos);
+            // console.log(currentBoardPos);
             const MoveBoxNo = c.dataset.index;
             saveSnapGrid(MoveBoxNo , currentBoardPos);
             c.classList.remove("hidden-half");
@@ -90,7 +90,7 @@ function saveSnap(boxNo , currentPlayer) {
 }
 
 function addScore(decided_winner) {
-    console.log("from addScore function- winner: "+decided_winner);
+    // console.log("from addScore function- winner: "+decided_winner);
     if(decided_winner===null) {
         const for_player_x = document.querySelector(".score-x");
         const for_player_o = document.querySelector(".score-o");
@@ -100,14 +100,14 @@ function addScore(decided_winner) {
         for_player_x.innerHTML = new_score_x;
         for_player_o.innerHTML = new_score_o;
         flag+=1;
-        console.log("flag now: "+flag);
+        // console.log("flag now: "+flag);
 
     } else {
         const for_player = document.querySelector(".score-"+decided_winner);
         var new_score = parseInt(for_player.innerHTML)+100;
         for_player.innerHTML = new_score;
         flag+=1;
-        console.log("flag now: "+flag);
+        // console.log("flag now: "+flag);
     }
 
 }
@@ -253,7 +253,7 @@ function checkWin() {
 }
 
 function restartGame() {
-    console.log("in restart game function ");
+    // console.log("in restart game function ");
     flag=0;
     count=0;
     winstrike.className = "strike";

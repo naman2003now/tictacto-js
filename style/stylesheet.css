@@ -23,7 +23,7 @@ body {
 
 /* headings */
 .header-1 {
-  font-size: 7rem;
+  font-size: 5rem;
   color: #e0ddaa;
   padding: 2% 0 0;
 }
@@ -38,14 +38,14 @@ body {
 .header-3 {
   font-size: 1rem;
   color: #203239;
-  padding: 2%;
+  padding: 1%;
   font-family: "Gideon Roman", cursive;
 }
 
 .header-4 {
   font-size: 2.5rem;
   color: #203239;
-  padding: 2%;
+  padding: 1%;
   font-family: "Rowdies", cursive;
 }
 
@@ -152,11 +152,10 @@ body {
 }
 
 .winner {
-  position: absolute;
-  right: 3%;
-  padding: 5% 0;
-  margin: 0 5%;
-  font-size: 2rem;
+  /* position: absolute;
+  right: 3%; */
+  width: 100%;
+  margin: 2%;
   background-color: #e0ddaa;
 }
 
@@ -181,13 +180,13 @@ body {
 }
 
 .restart {
-  padding: 1rem 2rem;
+  padding: 0.8rem 1.2rem;
   background-color: #141e27;
   color: #e0ddaa;
   font-size: 1rem;
   border-radius: 10px;
   font-family: "Rowdies", cursive;
-  margin-top: 2rem;
+  margin: 1rem 0;
 }
 
 /* Recording Moves */
@@ -208,4 +207,53 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/* responsiveness */
+@media screen and (max-width: 430px) {
+  .space {
+    font-size: 2.5rem;
+  }
+
+  .header-1 {
+    font-size: 3.5rem;
+    color: #e0ddaa;
+    padding: 2% 0 0;
+  }
+
+  .header-2 {
+    font-size: 1.5rem;
+    color: #e0ddaa;
+    padding: 2%;
+    font-family: "Gideon Roman", cursive;
+  }
+
+  .header-3 {
+    font-size: 0.8rem;
+    color: #203239;
+    padding: 1%;
+    font-family: "Gideon Roman", cursive;
+  }
+
+  .cell {
+    font-size: 1rem;
+  }
+
+  #moves {
+    /* display: grid;
+    gap: 5px; */
+    grid-template-columns: 8rem 8rem;
+    grid-template-rows: 5rem 3rem 3rem 3rem 3rem 3rem;
+    padding: 1%;
+  }
+
+  .scoreboard {
+    font-size: 2rem;
+    display: grid;
+    gap: 5px;
+    grid-template-columns: 8rem 8rem;
+    grid-template-rows: 4rem 3rem;
+    margin-top: 1rem;
+    padding: 2%;
+  }
 }
