@@ -1,3 +1,10 @@
+// linking service worker
+if ("serviceWorker" in navigator) {
+    // register service worker
+    navigator.serviceWorker.register("service-worker.js");
+}
+
+
 const boxes = document.querySelectorAll(".space");
 const P_X = "X";
 const P_O = "O";
@@ -82,7 +89,8 @@ function saveSnap(boxNo , currentPlayer) {
             const MoveBoxNo = c.dataset.index;
             saveSnapGrid(MoveBoxNo , currentBoardPos);
             c.classList.remove("hidden-half");
-            c.innerText = 'move '+count+'\nbox '+boxNo;
+            // c.innerText = 'move '+count+'\nbox '+boxNo;
+            c.innerHTML = "<section class='miniboard'>" + document.getElementById("board").innerHTML.replaceAll('space' , 'newspace').replaceAll('O-hover', '').replaceAll('X-hover' , '').replaceAll("strike", "something")+"</section>";
             c.addEventListener("click" , displayGrid);
             return;
         }
@@ -286,4 +294,7 @@ function restartGame() {
 for (var i=0; i<boardPos.length; i++) {
     boxes[i].addEventListener("click" , clickBox);
 }
+
+
+
 

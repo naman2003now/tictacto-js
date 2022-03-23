@@ -1,0 +1,287 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #141e27;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-family: "Gideon Roman", cursive;
+}
+
+.hidden {
+  display: none;
+}
+
+.hidden-half {
+  opacity: 0.3;
+}
+
+.visible {
+  display: block;
+}
+
+/* headings */
+.header-1 {
+  font-size: 5rem;
+  color: #e0ddaa;
+  padding: 2% 0 0;
+}
+
+.header-2 {
+  font-size: 2.5rem;
+  color: #e0ddaa;
+  padding: 2%;
+  font-family: "Gideon Roman", cursive;
+}
+
+.header-3 {
+  font-size: 1rem;
+  color: #203239;
+  padding: 1%;
+  font-family: "Gideon Roman", cursive;
+}
+
+.header-4 {
+  font-size: 2.5rem;
+  color: #203239;
+  padding: 1%;
+  font-family: "Rowdies", cursive;
+}
+
+/* game board */
+#board {
+  display: grid;
+  gap: 5px;
+  grid-template-columns: 80px 80px 80px;
+  grid-template-rows: 80px 80px 80px;
+  cursor: pointer;
+  position: relative;
+  margin: 1rem 0;
+}
+
+.space {
+  background-color: #e0ddaa;
+  font-family: "Rowdies", cursive;
+  color: #203239;
+  font-size: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* Hover */
+.X-hover:hover::after {
+  content: "X";
+  font-size: 4rem;
+  font-family: "Rowdies", cursive;
+  color: #203239;
+  opacity: 0.5;
+}
+
+.O-hover:hover::after {
+  content: "O";
+  font-size: 4rem;
+  font-family: "Rowdies", cursive;
+  color: #203239;
+  opacity: 0.5;
+}
+
+.strike {
+  position: absolute;
+  background-color: #141e27;
+  opacity: 0.5;
+}
+.strike-row-1 {
+  height: 80px;
+  width: 250px;
+  position: absolute;
+  top: 0;
+}
+
+.strike-row-2 {
+  height: 80px;
+  width: 250px;
+  position: absolute;
+  top: 85px;
+}
+
+.strike-row-3 {
+  height: 80px;
+  width: 250px;
+  position: absolute;
+  top: 170px;
+}
+
+.strike-col-1 {
+  height: 250px;
+  width: 80px;
+  position: absolute;
+  left: 0;
+}
+
+.strike-col-2 {
+  height: 250px;
+  width: 80px;
+  position: absolute;
+  left: 85px;
+}
+
+.strike-col-3 {
+  height: 250px;
+  width: 80px;
+  position: absolute;
+  left: 170px;
+}
+
+.strike-dia-1 {
+  height: 250px;
+  width: 100px;
+  position: absolute;
+  left: 75px;
+  transform: rotate(45deg);
+}
+
+.strike-dia-2 {
+  height: 250px;
+  width: 100px;
+  position: absolute;
+  left: 75px;
+  transform: rotate(-45deg);
+}
+
+.winner {
+  /* position: absolute;
+  right: 3%; */
+  width: 100%;
+  margin: 2%;
+  background-color: #e0ddaa;
+}
+
+.scoreboard {
+  font-size: 2rem;
+  display: grid;
+  gap: 5px;
+  grid-template-columns: 15rem 15rem;
+  grid-template-rows: 7rem 5rem;
+  padding: 5%;
+  margin-top: -2rem;
+}
+
+.score-cell {
+  background-color: #e0ddaa;
+  font-size: 1.5rem;
+  color: #203239;
+  font-weight: 900;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.restart {
+  padding: 0.8rem 1.2rem;
+  background-color: #141e27;
+  color: #e0ddaa;
+  font-size: 1rem;
+  border-radius: 10px;
+  font-family: "Rowdies", cursive;
+  margin: 1rem 0;
+}
+
+/* Recording Moves */
+#moves {
+  display: grid;
+  gap: 5px;
+  grid-template-columns: 15rem 15rem;
+  grid-template-rows: 7rem 5rem 5rem 5rem 5rem 5rem;
+  padding: 2%;
+}
+
+.cell {
+  background-color: #e0ddaa;
+  font-size: 1.5rem;
+  color: #203239;
+  font-weight: 900;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* responsiveness */
+@media screen and (max-width: 430px) {
+  .space {
+    font-size: 2.5rem;
+  }
+
+  .header-1 {
+    font-size: 3.5rem;
+    color: #e0ddaa;
+    padding: 2% 0 0;
+  }
+
+  .header-2 {
+    font-size: 1.5rem;
+    color: #e0ddaa;
+    padding: 2%;
+    font-family: "Gideon Roman", cursive;
+  }
+
+  .header-3 {
+    font-size: 0.8rem;
+    color: #203239;
+    padding: 1%;
+    font-family: "Gideon Roman", cursive;
+  }
+
+  .cell {
+    font-size: 1rem;
+  }
+
+  #moves {
+    /* display: grid;
+    gap: 5px; */
+    grid-template-columns: 8rem 8rem;
+    grid-template-rows: 5rem 4rem 4rem 4rem 4rem 4rem;
+    padding: 1%;
+  }
+
+  .scoreboard {
+    font-size: 2rem;
+    display: grid;
+    gap: 5px;
+    grid-template-columns: 8rem 8rem;
+    grid-template-rows: 4rem 3rem;
+    margin-top: 1rem;
+    padding: 2%;
+  }
+}
+
+/* To be displayed in time snaps */
+.miniboard {
+  display: grid;
+  grid-template-columns: 1.2rem 1.2rem 1.2rem;
+  grid-template-rows: 1.2rem 1.2rem 1.2rem;
+  gap: 1px;
+  position: relative;
+  /* cursor: pointer; */
+}
+.newspace {
+  color: #e0ddaa;
+  font-family: "Rowdies", cursive;
+  background-color: #203239;
+  font-size: 0.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* Ownder Credits */
+.owner {
+  font-size: 1rem;
+  color: #e0ddaa;
+  padding: 2%;
+  font-family: "Gideon Roman", cursive;
+}
