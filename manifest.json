@@ -7,30 +7,11 @@
       "src": "assets/xo_icon.svg",
       "sizes": "150x150"
     }],
-    "scope": "/",
     "id": "tictactoe",
     "start_url": "/",
     "display": "standalone",
     "orientation": "landscape",
     "theme_color": "#203239",
-    "background_color": "#203239",
-    "shortcuts": [
-    {
-        "name": "X/O",
-        "description" : "X and O, the Eternal Game.",
-        "url": "/",
-        "icons": [
-        {
-            "src": "assets/xo_icon.svg",
-            "sizes": "150x150"
-        }
-        ]
-        },
-        {
-            "name": "X/O",
-            "description" : "X and O, the Eternal Game.",
-            "url": "/"
-        }
-        ]
+    "background_color": "#203239"
   }
   

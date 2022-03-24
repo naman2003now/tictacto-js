@@ -1,7 +1,12 @@
 // linking service worker
 if ("serviceWorker" in navigator) {
     // register service worker
-    navigator.serviceWorker.register("service-worker.js");
+    navigator.serviceWorker.register("/sw.js")
+    .then(reg => {
+        console.log("registered: ", reg);
+    }).catch(err => {
+        console.log("registration failed: ", err);
+    });
 }
 
 
