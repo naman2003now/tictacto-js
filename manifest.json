@@ -8,7 +8,7 @@
       "sizes": "150x150"
     }],
     "id": "tictactoe",
-    "start_url": "/",
+    "start_url": ".",
     "display": "standalone",
     "orientation": "landscape",
     "theme_color": "#203239",
