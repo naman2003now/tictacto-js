@@ -1,7 +1,7 @@
 // Storing cache
 const cacheName = 'cache-v1';
 const resourcesToPrecache = [
-    '/',
+    './',
     'index.html',
     'script.js',
     'assets/xo_icon.svg',
