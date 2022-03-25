@@ -4,7 +4,7 @@
     "short_name": "X/O",
     "description" : "X and O, the Eternal Game.",
     "icons": [{
-      "src": "/assets/xo_icon.svg",
+      "src": "/assets/icon.svg",
       "sizes": "150x150"
     }],
     "id": "tictactoe",
