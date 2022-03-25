@@ -24,7 +24,7 @@ self.addEventListener('activate', event => {
 })
 
 self.addEventListener('fetch', event => {
-    event.respondsWith(caches.match(event.request))
+    event.respondWith(caches.match(event.request))
     .then(cachedResponse => {
         return cachedResponse || fetch(event.request);
     })
